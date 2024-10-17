@@ -1,0 +1,13 @@
+ Thu Oct 17 2024 13:09:18 GMT+0530 (India Standard Time)-/api/cart-{}{"level":"info","message":"/api/cart-{}","service":"request-logging"}
+{"level":"info","message":"/-{}","service":"request-logging"}
+{"level":"info","message":"/api/user/signin-{\"email\":\"customer@ecom.com\",\"password\":\"password\"}","service":"request-logging"}
+{"level":"info","message":"/api/cart?productid=1&userid=2&rating=5-{}","service":"request-logging"}
+{"level":"info","message":"/?productid=1&userid=2&rating=5-{}","service":"request-logging"}
+{"level":"info","message":"/api/product/rate?productid=1&userid=2&rating=5-{}","service":"request-logging"}
+{"level":"info","message":"/api/product/rate?productid=11&userid=2&rating=5-{}","service":"request-logging"}
+{"level":"info","message":"/api/product/rate?productid=1&userid=22&rating=5-{}","service":"request-logging"}
+{"level":"info","message":"/api/product/rate?productid=11&userid=22&rating=5-{}","service":"request-logging"}
+{"level":"info","message":"/api/product/rate?productid=11&userid=22&rating=5-{}","service":"request-logging"}
+{"level":"info","message":"/api/product/rate?productid=1&userid=2&rating=5-{}","service":"request-logging"}
+{"level":"info","message":"/api/product/rate?productid=1&userid=2&rating=5-{}","service":"request-logging"}
+{"level":"info","message":"/api/product/rate?productid=1&userid=2&rating=5-{}","service":"request-logging"}
