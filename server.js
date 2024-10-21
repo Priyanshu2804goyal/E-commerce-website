@@ -1,3 +1,4 @@
+import "./env.js"
 import express from "express";
 import swagger from "swagger-ui-express";
 import productrouter from "./src/features/product/product.routes.js";
@@ -9,6 +10,7 @@ import bodyParser from "body-parser";
 import apidocs from "./swagger3.0.json" assert {type:'json'};
 import loggermiddleware from "./src/middlewares/logger.middleware.js";
 import { applicationerror } from "./errorhandler/applicationerror.js";
+import {connecttomongodb} from "./config/monogodb.js";
 import cors from 'cors';
 // error handler middleware;
 const server=express();
@@ -34,6 +36,7 @@ server.use((req,res)=>{
 })
 server.listen(5300,()=>{
     console.log('Server run at 5300');
+    connecttomongodb();
 })
 // cors policy using library;
 /*

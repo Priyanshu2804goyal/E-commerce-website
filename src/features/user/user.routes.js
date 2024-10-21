@@ -5,6 +5,10 @@ import usercontroller from "./user.controller.js";
 const userrouter=express.Router();
 const userscontroller=new usercontroller;
 
-userrouter.post('/signin',userscontroller.signin);
-userrouter.post('/signup',userscontroller.signup);
+userrouter.post('/signin',(req,res)=>
+    {userscontroller.signin(req,res);
+    });
+userrouter.post('/signup',(req,res)=>{
+    userscontroller.signup(req,res);
+});
 export default userrouter;

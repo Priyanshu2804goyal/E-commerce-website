@@ -1,21 +1,30 @@
 import productmodel from "./product.model.js";
+import productrepository from "./product.repository.js";
 export default class productcontroller{
-  getallproduct(req,res){
-    const product=productmodel.getall();
+  constructor(){
+    this.productsreposity=new productrepository();
+  }
+ async getallproduct(req,res){
+    try{
+    const product=await this.productsreposity.getall();
     res.status(200).send(product);
-
-  }
-  addproduct(req,res){
-    const {name,price,size}=req.body;
-    const newproduct={
-      name,
-      price:parseFloat(price),
-      size:size.split(","),
-      imageurl:req.file.filename,
+    }catch(err){
+      console.log(err);
+      return res.status(401).send("something went wrong");
+    }
  }
-  const createrecord=productmodel.add(newproduct);
+  async addproduct(req,res){
+    try{
+    const {name,price,size}=req.body;
+    const newproduct=new productmodel(name,null,parseFloat(price),req.file.filename,null,(size|| '').split(","),
+  )
+  const createrecord=await this.productsreposity.add(newproduct);
     res.status(201).send(createrecord);
+  }catch(err){
+    console.log(err);
+    return res.status(401).send("something went wrong");
   }
+}
   rateproduct(req,res,next){
       try{
      const user_id=req.query.userid;
@@ -29,15 +38,21 @@ export default class productcontroller{
          // return res.status(400).send(err.message);
       }
 }
-  getoneproduct(req,res){
-     const id=req.params.id;
-     const product_item=productmodel.get(id);
-     if(!product_item){
-       res.status(404).send('product is not found');
-     }
-     else{
-      res.status(200).send(product_item);
-     }
+  async getoneproduct(req,res){
+    try{
+       const user_id=req.params.id;
+      const product= await this.productsreposity.get(user_id);
+       console.log(product);
+      if(!product){
+        res.status(404).send('product is not found');
+      }
+      else{
+       res.status(200).send(product);
+      }
+    }catch(err){
+        console.log(err);
+        return res.status(401).send("something went wrong");
+      }
   }
   filterproduct(req,res){
     const minprice=req.query.minprice;
@@ -47,3 +62,4 @@ export default class productcontroller{
     res.status(200).send(result);
   }
 }
+

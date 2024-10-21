@@ -2,14 +2,14 @@ import { application } from "express";
 import usermodel from "../user/user.model.js";
 import { applicationerror } from "../../../errorhandler/applicationerror.js";
 export default class productmodel{
-    constructor(id,name,desc,price,imageurl,category,size){
-        this.id=id;
+    constructor(name,desc,price,imageurl,category,size,id){
         this.name=name;
         this.desc=desc;
         this.price=price;
         this.imageurl=imageurl;
         this.category=category;
         this.size=size;
+        this._id=id;
     }
     static get(id){
       const product_item=product.find((i)=>i.id==id);

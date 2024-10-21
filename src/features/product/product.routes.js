@@ -5,9 +5,12 @@ import { upload } from "../../middlewares/fileupload.middleware.js";
 
 const productrouter=express.Router();
 const productscontroller=new productcontroller;
-productrouter.get('/',productscontroller.getallproduct);
+productrouter.get('/',(req,res)=>{
+    productscontroller.getallproduct(req,res)});
 productrouter.post('/rate',productscontroller.rateproduct);
 productrouter.get('/filter',productscontroller.filterproduct);
-productrouter.post('/addproduct',upload.single('imageurl'),productscontroller.addproduct);
-productrouter.get('/:id',productscontroller.getoneproduct);
+productrouter.post('/addproduct',upload.single('imageurl'),(req,res)=>{
+   productscontroller.addproduct(req,res)});
+productrouter.get('/:id',(req,res)=>{
+ productscontroller.getoneproduct(req,res)});
 export default productrouter;
