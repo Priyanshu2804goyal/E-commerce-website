@@ -25,12 +25,12 @@ export default class productcontroller{
     return res.status(401).send("something went wrong");
   }
 }
-  rateproduct(req,res,next){
+  async rateproduct(req,res,next){
       try{
-     const user_id=req.query.userid;
-     const product_id=req.query.productid;
-     const ratings=req.query.rating;
-       productmodel.rateproducts(user_id,product_id,ratings);
+     const user_id=req.userid;
+     const product_id=req.body.productid;
+     const ratings=req.body.rating;
+      await this.productsreposity.rate(user_id,product_id,ratings);
        return res.status(200).send('rating has been added');
       }catch(err){
           console.log('passing error to middleware');
@@ -54,12 +54,17 @@ export default class productcontroller{
         return res.status(401).send("something went wrong");
       }
   }
-  filterproduct(req,res){
+  async filterproduct(req,res){
+    try{
     const minprice=req.query.minprice;
     const maxprice=req.query.maxprice;
     const category=req.query.category;
-    const result=productmodel.filter(minprice,maxprice,category);
+    const result=await this.productsreposity.filter(minprice,maxprice,category);
     res.status(200).send(result);
+  }catch(err){
+    console.log(err);
+    return res.status(401).send("something went wrong");
+  }
   }
 }
 

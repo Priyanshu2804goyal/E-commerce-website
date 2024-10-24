@@ -7,8 +7,10 @@ const productrouter=express.Router();
 const productscontroller=new productcontroller;
 productrouter.get('/',(req,res)=>{
     productscontroller.getallproduct(req,res)});
-productrouter.post('/rate',productscontroller.rateproduct);
-productrouter.get('/filter',productscontroller.filterproduct);
+productrouter.post('/rate',(req,res)=>{
+    productscontroller.rateproduct(req,res)});
+productrouter.get('/filter',(req,res)=>{
+    productscontroller.filterproduct(req,res)});
 productrouter.post('/addproduct',upload.single('imageurl'),(req,res)=>{
    productscontroller.addproduct(req,res)});
 productrouter.get('/:id',(req,res)=>{

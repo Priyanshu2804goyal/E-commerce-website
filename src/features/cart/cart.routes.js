@@ -3,8 +3,11 @@ import { cartcontroller } from "./cart.controller.js";
  
 const cartrouter=express.Router();
 const cartscontroller=new cartcontroller();
-cartrouter.delete('/:id',cartscontroller.delete);
-cartrouter.post('/',cartscontroller.add);
-cartrouter.get('/',cartscontroller.get);
+cartrouter.delete('/:id',(req,res)=>{
+    cartscontroller.delete(req,res)});
+cartrouter.post('/',(req,res)=>{
+    cartscontroller.add(req,res)});
+cartrouter.get('/',(req,res)=>{
+    cartscontroller.get(req,res)});
 
 export default cartrouter;
