@@ -12,6 +12,8 @@ import loggermiddleware from "./src/middlewares/logger.middleware.js";
 import { applicationerror } from "./errorhandler/applicationerror.js";
 import {connecttomongodb} from "./config/monogodb.js";
 import cors from 'cors';
+import orderrouter from "./src/features/order/order.routes.js";
+import { connectusingmongoose } from "./config/mongooseconfig.js";
 // error handler middleware;
 const server=express();
 server.use((err,req,res,next)=>{
@@ -23,6 +25,7 @@ server.use((err,req,res,next)=>{
 })
 server.use(bodyParser.json());
 server.use(loggermiddleware);
+server.use('/api/order/',jwtauth,orderrouter);
 server.use('/api-docs/',swagger.serve,swagger.setup(apidocs));
 server.use('/api/cart/',loggermiddleware,jwtauth,cartrouter);
 server.use('/api/product/',jwtauth,productrouter);
@@ -36,7 +39,8 @@ server.use((req,res)=>{
 })
 server.listen(5300,()=>{
     console.log('Server run at 5300');
-    connecttomongodb();
+   // connecttomongodb();
+   connectusingmongoose();
 })
 // cors policy using library;
 /*

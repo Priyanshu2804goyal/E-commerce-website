@@ -9,6 +9,9 @@ productrouter.get('/',(req,res)=>{
     productscontroller.getallproduct(req,res)});
 productrouter.post('/rate',(req,res)=>{
     productscontroller.rateproduct(req,res)});
+    productrouter.get('/averageproduct',(req,res)=>{
+        productscontroller.averageprice(req,res)
+    });
 productrouter.get('/filter',(req,res)=>{
     productscontroller.filterproduct(req,res)});
 productrouter.post('/addproduct',upload.single('imageurl'),(req,res)=>{

@@ -1,5 +1,5 @@
 import productmodel from "./product.model.js";
-import productrepository from "./product.repository.js";
+import productrepository from "./product.repository_old.js";
 export default class productcontroller{
   constructor(){
     this.productsreposity=new productrepository();
@@ -15,8 +15,8 @@ export default class productcontroller{
  }
   async addproduct(req,res){
     try{
-    const {name,price,size}=req.body;
-    const newproduct=new productmodel(name,null,parseFloat(price),req.file.filename,null,(size|| '').split(","),
+    const {name,price,size,category}=req.body;
+    const newproduct=new productmodel(name,null,parseFloat(price),req.file.filename,category,(size|| '').split(","),
   )
   const createrecord=await this.productsreposity.add(newproduct);
     res.status(201).send(createrecord);
@@ -58,13 +58,23 @@ export default class productcontroller{
     try{
     const minprice=req.query.minprice;
     const maxprice=req.query.maxprice;
-    const category=req.query.category;
-    const result=await this.productsreposity.filter(minprice,maxprice,category);
+    const categories=req.query.category;
+    const result=await this.productsreposity.filter(minprice,maxprice,categories);
     res.status(200).send(result);
   }catch(err){
     console.log(err);
     return res.status(401).send("something went wrong");
   }
   }
+  async averageprice(req,res){
+     try{
+        const result=await this.productsreposity.AverageProductPricePerCategory();
+           // console.log(result);
+         res.status(200).send(result);
+     }catch(err){
+    console.log(err);
+    return res.status(401).send("something went wrong");
+  }
+}
 }
 

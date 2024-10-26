@@ -1,5 +1,5 @@
 import { ObjectId, ReturnDocument } from "mongodb";
-import { getDB } from "../../../config/monogodb.js";
+import { getclient, getDB } from "../../../config/monogodb.js";
 import { applicationerror } from "../../../errorhandler/applicationerror.js";
 export default class cartrepository{
     constructor(){
@@ -14,7 +14,11 @@ export default class cartrepository{
       // console.log(id);
      // find the document;
      // insert or delete the document;
-      await collection.updateOne({productid:new ObjectId(productid),userid:new ObjectId(userid)},
+     if (!ObjectId.isValid(productid) || !ObjectId.isValid(userid)) {
+        throw new applicationerror("Invalid productid or userid format. Must be a 24-character hex string.");
+      }
+      await collection.updateOne(
+        {productid:new ObjectId(productid),userid:new ObjectId(userid)},
         {  $setOnInsert:{
             _id:id
         },

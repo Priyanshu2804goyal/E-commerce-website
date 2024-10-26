@@ -9,7 +9,7 @@ export default class usercontroller{
     async signup(req,res){
         const {name,email,password,type}=req.body;
         const hashedpassword= await bcrypt.hash(password,12);
-        const user= await new   usermodel(name,email,hashedpassword,type);
+        const user= await new usermodel(name,email,hashedpassword,type);
         await this.usersrepository.signup(user);
        return res.status(201).send(user);
     }

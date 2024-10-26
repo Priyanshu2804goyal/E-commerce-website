@@ -1,33 +1,33 @@
-import { getDB } from "../../../config/monogodb.js";
-import { applicationerror } from "../../../errorhandler/applicationerror.js";
-class userrepository{
-   constructor(){
-    this.collection="users";
+import mongoose from "mongoose";
+import { userSchema } from "./user.schema.js";
+const usermodel=mongoose.model('User',userSchema);
+export default class userrepository{
+   async signup(user){
+      try{
+          const newuser=new usermodel(user);
+          await newuser.save();
+          return newuser;
+      }catch(err){
+        console.log(err);
+        throw new applicationerror("something went wrong with database",500);
+      }
    }
-    async signup(newuser){
-        // 1.get the database;
+    async signin(email,password){
         try{
-        const db=getDB();
-        // 2.get the collection;
-        const collection=db.collection(this.collection);
-        //3.insert in document;
-       await collection.insertOne(newuser);
-       return newuser;
-     }catch(err){
-        throw new applicationerror("something went wrong",500);
-     }
+          return await usermodel.findOne({email,password});
+        }catch(err){
+            console.log(err);
+            throw new applicationerror("something went wrong with database",500);
+          }
     }
     async findbyemail(email){
         // 1.get the database;
         try{
-        const db=getDB();
-        // 2.get the collection;
-        const collection=db.collection(this.collection);
-        //3.insert in document;
-       return  await collection.findOne({email});
+       return  await usermodel.findOne({email});
      }catch(err){
+         console.log(err);
         throw new applicationerror("something went wrong",500);
      }
     }
+
 }
-export default userrepository;

@@ -17,6 +17,9 @@ let client;
         console.log(err);
     })
 }
+ export const getclient=()=>{
+    return client;
+ }
  export const getDB=()=>{
     return client.db();
  }

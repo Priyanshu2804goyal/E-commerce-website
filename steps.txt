@@ -1,3 +1,38 @@
 1. counter collection {_id:"cartitems",value:0};
 2.while adding cart items.increment the  counter and then use counter value
 as id to the cartitem document;
+// command for mongodb;
+db.products.aggregate(
+   [
+    {
+        $unwind:"$ratings"
+    },
+    {
+        $group:{
+            _id:"$name",
+            averagerating:{$avg:"$ratings.rating"}
+        }
+    }
+   ]
+)
+db.products.aggregate(
+   [
+    {
+        $project:{name:1,countofRating:{
+            $cond:{if:{$isArray:"$ratings"}
+            ,then:{$size:"$ratings"},else:0
+            }
+        }}
+    },
+    {
+        // sort the rating in  descending order
+        $sort:{countofRating:-1}
+    },
+    {
+        // limit to 2 product;
+        $limit:2
+    }
+
+   ]
+
+)

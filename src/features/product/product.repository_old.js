@@ -40,19 +40,24 @@ class productrepository{
         throw new applicationerror("something went wrong",500);
       }
    }
-   async filter(minprice,maxprice,category){
+   async filter(minprice,maxprice,categories){
       try{
         const db=getDB();
         const collection=db.collection(this.collection);
         let filterexpression={};
+       // console.log(categories);
         if(minprice){
             filterexpression.price={$gte:parseFloat(minprice)};
         }
         if(maxprice){
             filterexpression.price={...filterexpression.price,$lte:parseFloat(maxprice)};
         }
-        if(category){
-            filterexpression.category=category;
+        if (typeof categories === "string") {
+          categories=JSON.parse(categories.replace(/'/g,'"'))
+        }
+        //  console.log(categories);
+        if(categories){
+            filterexpression={$and:[{category:{$in:categories}},filterexpression]};
         }
          return await collection.find(filterexpression).toArray();
       }catch(err){
@@ -70,7 +75,25 @@ class productrepository{
         await collection.updateOne({_id:new ObjectId(productid)},{$push:{ratings:{userid:new ObjectId(userid),rating}}});
       }catch(err){
         console.log(err);
-        throw new applicationerror("something went wrong",500);
+        throw new applicationerror("something went wrong with database",500);
+      }
+   }
+   async AverageProductPricePerCategory(){
+     try{
+          const db=getDB();
+         return await db.collection(this.collection).aggregate(
+             [
+                {
+                    $group:{
+                        _id:"$category",
+                        averagePrice:{$avg:"$price"}
+                    }
+                }
+             ]
+          ).toArray();
+   }catch(err){
+        console.log(err);
+        throw new applicationerror("something went wrong with database",500);
       }
    }
 }
