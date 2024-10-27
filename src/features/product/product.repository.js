@@ -1,7 +1,12 @@
+import mongoose from "mongoose";
 import { getDB } from "../../../config/monogodb.js";
 import { applicationerror } from "../../../errorhandler/applicationerror.js";
 import { ObjectId } from "mongodb";
-
+import { productschema } from "./product.schema.js";
+import { userSchema } from "../user/user.schema.js";
+import { error } from "winston";
+  const productmodel= mongoose.model('product',productschema);
+  const reviewmodel=mongoose.model('user',userSchema);
 class productrepository{
     constructor(){
         this.collection="products";
@@ -67,12 +72,23 @@ class productrepository{
    }
    async rate(userid,productid,rating){
       try{
-        const db=getDB();
-        const collection=db.collection(this.collection);
-        // pull the rating-remove existing rating;
-        await collection.updateOne({_id:new ObjectId(productid)},{$pull:{ratings:{userid:new ObjectId(userid)}}});
-        // push the rating-add new rating;
-        await collection.updateOne({_id:new ObjectId(productid)},{$push:{ratings:{userid:new ObjectId(userid),rating}}});
+        const producttoupdate=await productmodel.findById(productid);
+         if(!producttoupdate){
+          throw new Error('product not found');
+         }
+         const userreview=await reviewmodel.findOne({product:new ObjectId(prouctid),user:new ObjectId(userid)});
+         if(userreview){
+          userreview.rating=rating;
+           await userreview.save();
+         }
+         else{
+          const newreview=new reviewmodel({
+            product:new ObjectId(productid),
+            user:new ObjectId(userid),
+            rating:rating
+          })
+          newreview.save();
+         }
       }catch(err){
         console.log(err);
         throw new applicationerror("something went wrong with database",500);

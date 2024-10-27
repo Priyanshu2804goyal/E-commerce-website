@@ -220,3 +220,54 @@
 {"level":"info","message":"/api/order/-{}","service":"request-logging"}
 {"level":"info","message":"/api/product/averageproduct-{}","service":"request-logging"}
 {"level":"info","message":"/api/user/signup-{\"name\":\"john doe\",\"email\":\"johndoe@gmail.com\",\"password\":\"password98\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword/%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword/%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api-docs-{}","service":"request-logging"}
+{"level":"info","message":"/api-docs/-{}","service":"request-logging"}
+{"level":"info","message":"/api-docs/swagger-ui.css-{}","service":"request-logging"}
+{"level":"info","message":"/api-docs/swagger-ui-bundle.js-{}","service":"request-logging"}
+{"level":"info","message":"/api-docs/swagger-ui-standalone-preset.js-{}","service":"request-logging"}
+{"level":"info","message":"/api-docs/swagger-ui-init.js-{}","service":"request-logging"}
+{"level":"info","message":"/api-docs/favicon-32x32.png-{}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword-{\"newpassword\":\"password28\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password2804\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword-{\"newpassword\":\"password30\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword%0A-{\"newpassword\":\"password2804\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup-{\"name\":\"john doe1\",\"email\":\"johndoe1@gmail.com\",\"password\":\"password98\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup-{\"name\":\"john doe1\",\"email\":\"johndoe1@gmail.com\",\"password\":\"password98\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup-{\"name\":\"john doe1\",\"email\":\"johndoe1@gmail.com\",\"password\":\"password98\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup-{\"name\":\"john doe1\",\"email\":\"johndoe1@gmail.com\",\"password\":\"password98\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup-{\"name\":\"john doe1\",\"email\":\"johndoe1@gmail.com\",\"password\":\"password98\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup-{\"name\":\"john doe1\",\"email\":\"johndoe1@gmail.com\",\"password\":\"password98\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup-{\"name\":\"john doe1\",\"email\":\"johndoe1@gmail.com\",\"password\":\"password98\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup-{\"name\":\"john doe1\",\"email\":\"johndoe1@gmail.com\",\"password\":\"password98\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup-{\"name\":\"john doe1\",\"email\":\"johndoe1@gmail.com\",\"password\":\"password98\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup-{\"name\":\"john doe1\",\"email\":\"johndoe1@gmail.com\",\"password\":\"password98\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup-{\"name\":\"john doe1\",\"email\":\"johndoe1@gmail.com\",\"password\":\"password98\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup-{\"name\":\"john doe1\",\"email\":\"johndoe1@gmail.com\",\"password\":\"password98\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup-{\"email\":\"johndoe1@gmail.com\",\"password\":\"password98\"}","service":"request-logging"}

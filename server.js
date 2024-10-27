@@ -14,14 +14,18 @@ import {connecttomongodb} from "./config/monogodb.js";
 import cors from 'cors';
 import orderrouter from "./src/features/order/order.routes.js";
 import { connectusingmongoose } from "./config/mongooseconfig.js";
+import mongoose from "mongoose";
 // error handler middleware;
 const server=express();
 server.use((err,req,res,next)=>{
-    if(err instanceof applicationerror){
-        res.status(err.code).send(err.message);
+    console.log(err);
+    if(err instanceof mongoose.Error.ValidationError){
+        return res.status(400).send(err.message);
     }
-    res.status(500).send('something went wrong try again later');
-
+    if(err instanceof applicationerror){
+        return res.status(err.code).send(err.message);
+    }
+   return res.status(500).send('something went wrong try again later');
 })
 server.use(bodyParser.json());
 server.use(loggermiddleware);

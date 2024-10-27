@@ -1,5 +1,5 @@
 import productmodel from "./product.model.js";
-import productrepository from "./product.repository_old.js";
+import productrepository from "./product.repository.js";
 export default class productcontroller{
   constructor(){
     this.productsreposity=new productrepository();
